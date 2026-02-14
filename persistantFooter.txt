@@ -1,0 +1,15 @@
+ persistentFooterButtons: [
+        Text.rich(
+            textAlign: TextAlign.center,
+            TextSpan(text: "By logging in, you agree to our ", children: [
+              TextSpan(
+                  text: "Terms of Service",
+                  style:
+                      FontManager.labelMedium(color: const Color(0xFFFF7A28))),
+              TextSpan(text: " and ", style: FontManager.labelMedium()),
+              TextSpan(
+                  text: "Privacy Policy",
+                  style:
+                      FontManager.labelMedium(color: const Color(0xFFFF7A28))),
+            ]))
+      ],
