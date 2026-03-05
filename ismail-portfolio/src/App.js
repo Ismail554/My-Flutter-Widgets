@@ -1,6 +1,5 @@
 // App.js
 import React, { useState, useEffect } from 'react';
-import ResumePage from './ResumePage';
 import './App.css';
 
 function App() {
