@@ -1,11 +1,9 @@
 %-------------------------
-% Resume in Latex
+% Modern Resume in LaTeX
 % Author : MD Ismail Hosen
-% Based off of: https://github.com/sb2nov/resume
-% License : MIT
-%------------------------
+%-------------------------
 
-\documentclass[letterpaper,11pt]{article}
+\documentclass[letterpaper,10.5pt]{article}
 
 \usepackage{latexsym}
 \usepackage[empty]{fullpage}
@@ -20,182 +18,216 @@
 \usepackage{tabularx}
 \usepackage{fontawesome5}
 \usepackage{multicol}
-\setlength{\multicolsep}{-3.0pt}
-\setlength{\columnsep}{-1pt}
+\usepackage{xcolor}
+\usepackage{tikz}
 \input{glyphtounicode}
 
+% ── Colours ──────────────────────────────────────────────────────────────────
+\definecolor{accent}{HTML}{1A56DB}
+\definecolor{dark}{HTML}{111827}
+\definecolor{mid}{HTML}{374151}
+\definecolor{light}{HTML}{6B7280}
+\definecolor{rule}{HTML}{9CA3AF}
+
+% ── Page geometry ─────────────────────────────────────────────────────────────
 \pagestyle{fancy}
-\fancyhf{} % clear all header and footer fields
+\fancyhf{}
 \fancyfoot{}
 \renewcommand{\headrulewidth}{0pt}
 \renewcommand{\footrulewidth}{0pt}
 
-% Adjust margins
-\addtolength{\oddsidemargin}{-0.5in}
-\addtolength{\evensidemargin}{-0.5in}
-\addtolength{\textwidth}{1.0in}
-\addtolength{\topmargin}{-0.5in}
-\addtolength{\textheight}{1.0in}
+\addtolength{\oddsidemargin}{-0.55in}
+\addtolength{\evensidemargin}{-0.55in}
+\addtolength{\textwidth}{1.1in}
+\addtolength{\topmargin}{-0.6in}
+\addtolength{\textheight}{1.2in}
 
 \urlstyle{same}
-
 \raggedbottom
 \raggedright
 \setlength{\tabcolsep}{0in}
 
-% Sections formatting
-\titleformat{\section}{
-  \vspace{-4pt}\scshape\raggedright\large\bfseries
-}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+% ── Hyperlink colour ──────────────────────────────────────────────────────────
+\hypersetup{
+  colorlinks=true,
+  urlcolor=accent,
+  linkcolor=accent
+}
 
-% Ensure that generate pdf is machine readable/ATS parsable
+% ── Section heading ───────────────────────────────────────────────────────────
+\titleformat{\section}{
+  \vspace{-2pt}\color{accent}\scshape\raggedright\large\bfseries
+}{}{0em}{}[{\color{rule}\titlerule[1.5pt]} \vspace{-5pt}]
+
 \pdfgentounicode=1
 
-%-------------------------
-% Custom commands
+% ── Custom commands ───────────────────────────────────────────────────────────
 \newcommand{\resumeItem}[1]{
-  \item\small{
-    {#1 \vspace{-2pt}}
-  }
+  \item\small{\color{mid}{#1 \vspace{-1pt}}}
 }
 
 \newcommand{\resumeSubheading}[4]{
-  \vspace{-2pt}\item
+  \vspace{-1pt}\item
     \begin{tabular*}{1.0\textwidth}[t]{l@{\extracolsep{\fill}}r}
-      \textbf{#1} & \textbf{\small #2} \\
-      \textit{\small#3} & \textit{\small #4} \\
-    \end{tabular*}\vspace{-7pt}
-}
-
-\newcommand{\resumeSubSubheading}[2]{
-    \item
-    \begin{tabular*}{1.0\textwidth}{l@{\extracolsep{\fill}}r}
-      \textit{\small#1} & \textit{\small #2} \\
-    \end{tabular*}\vspace{-7pt}
+      \textbf{\color{dark}#1} & \small\color{light}#2 \\
+      \textit{\small\color{mid}#3} & \textit{\small\color{light}#4} \\
+    \end{tabular*}\vspace{-4pt}
 }
 
 \newcommand{\resumeProjectHeading}[2]{
-    \item
+  \item
     \begin{tabular*}{1.0\textwidth}{l@{\extracolsep{\fill}}r}
-      \small#1 & \textbf{\small #2} \\
-    \end{tabular*}\vspace{-7pt}
+      \small\color{dark}#1 & \small\color{light}#2 \\
+    \end{tabular*}\vspace{-6pt}
 }
 
-\newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-4pt}}
-
-\renewcommand\labelitemi{$\vcenter{\hbox{\tiny$\bullet$}}$}
-\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+\renewcommand\labelitemii{{\color{accent}\tiny$\bullet$}}
 
 \newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.0in, label={}]}
 \newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
-\newcommand{\resumeItemListStart}{\begin{itemize}[leftmargin=0.1in, label={\tiny$\bullet$}, itemsep=2pt, parsep=0pt, topsep=3pt]}
-\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+\newcommand{\resumeItemListStart}{%
+  \begin{itemize}[leftmargin=0.18in, label={\color{accent}\tiny$\bullet$},
+    itemsep=2pt, parsep=0pt, topsep=4pt]}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-4pt}}
 
-%-------------------------------------------
-%%%%%%  RESUME STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% ── Skill row (updated spacing) ───────────────────────────────────────────────
+\newcommand{\skillrow}[2]{%
+  \small{\textbf{\color{dark}#1:}\quad\color{mid}#2}%
+}
 
+%─────────────────────────────────────────────────────────────────────────────
 \begin{document}
 
-%----------HEADING----------
+% ── HEADER ────────────────────────────────────────────────────────────────────
 \begin{center}
-    {\Huge \textbf{MD Ismail Hosen}} \\ \vspace{4pt}
-    {\large Flutter Developer | Junior Software Engineer} \\ \vspace{6pt}
-    \small
-    \faMapMarker\ Dhaka, Bangladesh \quad
-    \href{tel:+8801619524736}{\faPhone\  +880 1619-524736} \quad
-    \href{mailto:ismailshuvo555@gmail.com}{\faEnvelope\  ismailshuvo555@gmail.com} \\ \vspace{2pt}
-    \href{https://linkedin.com/in/ismail554}{\faLinkedin\  linkedin.com/in/ismail554} \quad
-    \href{https://github.com/Ismail554}{\faGithub\  github.com/Ismail554}
+  {\Huge\bfseries\color{dark} MD Ismail Hosen} \\[6pt]
+  {\large\itshape\color{light} Flutter Developer \enspace·\enspace Mobile Software Engineer} \\[8pt]
+  \small
+  \color{mid}\faMapMarker\ Dhaka, Bangladesh \enspace·\enspace
+  \href{https://wa.me/8801619524736}{\faWhatsapp\ +880 1619-524736} \enspace·\enspace
+  \href{mailto:ismailshuvo555@gmail.com}{\faEnvelope\ ismailshuvo555@gmail.com} \\[3pt]
+  \href{https://linkedin.com/in/ismail554}{\faLinkedin\ linkedin.com/in/ismail554} \enspace·\enspace
+  \href{https://github.com/Ismail554}{\faGithub\ github.com/Ismail554}
 \end{center}
 
-%-----------SUMMARY-----------
+
+% ── SUMMARY ───────────────────────────────────────────────────────────────────
 \section{Summary}
-  \vspace{2pt}
-  \small{Mobile Application Developer experienced in designing, developing, and maintaining high-quality Flutter, Android (Java), and iOS applications. Skilled in ensuring optimal app performance, responsiveness, and quality through Clean Architecture and state management (Provider, GetX). Proficient in REST API integration, mobile app lifecycles, and collaborating with cross-functional teams to deliver scalable mobile solutions.}
+\vspace{4pt}
+\small\color{mid}
+Cross-platform Flutter developer and technical lead for the App\_Oreo Team with hands‑on experience shipping high-performance applications to Google Play and the Apple App Store. Passionate about achieving 90fps performance and pixel-perfect UIs using Clean Architecture, MVVM, and state management (Provider, GetX). Proven track record of integrating real‑time features (WebSockets, Agora), complex payment SDKs (Stripe), and leading development from QA execution to production release.
+\vspace{2pt}
 
-%-----------TECHNICAL SKILLS-----------
-\section{Technical Skills}
- \begin{itemize}[leftmargin=0.15in, label={}]
-    \small{\item{
-     \textbf{Languages:} Dart, Java, C/C++ \\
-     \textbf{Frameworks \& Libraries:} Flutter, GetX, Provider, Firebase, Agora SDK, Stripe SDK, Google Maps SDK \\
-     \textbf{Architecture \& Concepts:} Clean Architecture, MVVM, REST API Integration, WebSocket, Real-time Communication \\
-     \textbf{Developer Tools:} Git, GitHub, Android Studio, VS Code, Postman, Xcode \\
-     \textbf{Platforms:} Google Play Console, Apple App Store Connect \\
-     \textbf{Soft Skills:} Team Leadership, Cross-functional Collaboration, Problem Solving, Agile Methodologies
-    }}
- \end{itemize}
- \vspace{4pt}
-
-%-----------EXPERIENCE-----------
+% ── EXPERIENCE ────────────────────────────────────────────────────────────────
 \section{Experience}
-  \resumeSubHeadingListStart
+\resumeSubHeadingListStart
 
-    \resumeSubheading
-      {Join Venture AI}{Dhaka, Bangladesh}
-      {Junior Flutter Developer | Assistant Team Leader}{Sep 2025 -- Present}
-      \resumeItemListStart
-        \resumeItem{Designed, developed, and maintained cross-platform mobile applications using Flutter and Clean Architecture.}
-        \resumeItem{Ensured app performance, quality, and responsiveness by optimizing UI rendering and resolving bottlenecks.}
-        \resumeItem{Collaborated with cross-functional teams to integrate REST APIs, WebSockets, and third-party SDKs (Agora, Stripe).}
-        \resumeItem{Mentored junior developers and managed technical blockers to ensure timely, high-quality project delivery.}
-      \resumeItemListEnd
+  \resumeSubheading
+    {Join Venture AI}{Dhaka, Bangladesh}
+    {Junior Flutter Developer \textnormal{·} Assistant Team Leader}{Sep 2025 -- Present}
+    \resumeItemListStart
+      \resumeItem{Engineered cross‑platform Flutter applications following Clean Architecture, reducing feature delivery time by \textasciitilde25\% through modular design.}
+      \resumeItem{Optimized UI rendering pipelines, resolving jank on low‑end devices and targeting 90fps to improve frame rate consistency by 20\%.}
+      \resumeItem{Integrated REST APIs, WebSockets, and third‑party SDKs including Agora (video/audio) and Stripe (payments).}
+      \resumeItem{Led a team of 3 junior developers; conducted code reviews, technical mentorship (including Socratic deep-dives into Dart/Java concepts), and reduced production hotfixes by 30\%.}
+    \resumeItemListEnd
 
-    \resumeSubheading
-      {Innovation IT}{Dhaka, Bangladesh}
-      {Mobile App Developer}{Mar 2025 -- Sep 2025}
-      \resumeItemListStart
-        \resumeItem{Developed native Android (Java) applications with responsive UIs, adhering to the mobile app lifecycle.}
-        \resumeItem{Integrated REST APIs and Firebase backend services to build dynamic, data-driven application features.}
-        \resumeItem{Ensured operational stability and app quality by reducing bundle sizes and resolving platform-specific issues.}
-      \resumeItemListEnd
+  \resumeSubheading
+    {Freelance Mobile Developer / App\_Oreo Team Lead}{Dhaka, Bangladesh}
+    {Lead Flutter Developer}{Jan 2025 -- Present}
+    \resumeItemListStart
+      \resumeItem{Spearheaded end-to-end app development and acted as the primary technical point of contact for international clients via freelance platforms.}
+      \resumeItem{Engineered the LIVU App for the Apple ecosystem, featuring a complex predictive dashboard that calculates performance scores and fatigue risk.}
+      \resumeItem{Implemented a subscription-based monetization model using Stripe for a Flutter-based job-searching application, managing deployment and platform fee considerations.}
+    \resumeItemListEnd
 
-  \resumeSubHeadingListEnd
+  \resumeSubheading
+    {Innovation IT}{Dhaka, Bangladesh}
+    {Mobile App Developer}{Mar 2025 -- Sep 2025}
+    \resumeItemListStart
+      \resumeItem{Built native Android applications in Java with responsive Material Design UIs aligned to platform lifecycle best practices.}
+      \resumeItem{Integrated REST APIs and Firebase backend services (Auth, Firestore, Storage) for dynamic content delivery.}
+      \resumeItem{Reduced APK size by 15\% and resolved platform‑specific crashes to maintain 99.5\% crash‑free sessions.}
+    \resumeItemListEnd
 
-%-----------PROJECTS-----------
+\resumeSubHeadingListEnd
+
+% ── PROJECTS ──────────────────────────────────────────────────────────────────
 \section{Projects}
-    \resumeSubHeadingListStart
-      \resumeProjectHeading
-          {\textbf{Geography Geyser} $|$ \emph{Flutter, Dart, Firebase, REST API}}{\href{https://play.google.com/store/apps/details?id=com.app.geography_geyser}{Google Play}}
-          \resumeItemListStart
-            \resumeItem{Developed and published an educational quiz application focused on geography, featuring dynamic scoring and progression reward system.}
-            \resumeItem{Implemented asynchronous data loading for smooth transitions between quiz sections and local caching for offline functionality.}
-          \resumeItemListEnd
-          
-      \resumeProjectHeading
-          {\textbf{NetworkX Mobile App} $|$ \emph{Flutter, Provider, REST API}}{\href{https://play.google.com/store/apps/details?id=com.app.neworkx}{Google Play}}
-          \resumeItemListStart
-            \resumeItem{Built an enterprise mobile application with API-driven content delivery and interactive dashboards.}
-            \resumeItem{Implemented network layer with interceptors for seamless authentication flows and token refresh handling.}
-          \resumeItemListEnd
-          
-      \resumeProjectHeading
-          {\textbf{ScoreLivePro} $|$ \emph{Flutter, WebSockets, State Management}}{\href{https://github.com/Ismail554/scorelivepro}{GitHub}}
-          \resumeItemListStart
-             \resumeItem{Developed a sports application providing live score updates and commentary via WebSocket connections.}
-             \resumeItem{Utilized state management to handle real-time data streams while maintaining UI performance.}
-          \resumeItemListEnd
-          
-      \resumeProjectHeading
-          {\textbf{AnchorUP App} $|$ \emph{Flutter, Modular Architecture}}{\href{https://github.com/Ismail554/AnchorApp}{GitHub}}
-          \resumeItemListStart
-            \resumeItem{Created a modular application with reusable UI widgets to streamline future feature development.}
-          \resumeItemListEnd
-    \resumeSubHeadingListEnd
+\resumeSubHeadingListStart
 
-%-----------EDUCATION-----------
+  \resumeProjectHeading
+    {\textbf{\color{dark}ScoreLivePro} \enspace{\color{light}·}\enspace
+     \emph{\color{light}Flutter · WebSockets · Localization · QA}}
+    {\href{https://play.google.com/store/apps/details?id=com.scorelivepro.app}%
+       {\color{accent}Google Play}\enspace{\color{light}|}\enspace
+     \href{https://apps.apple.com/app/scorelivepro/id6758834768}%
+       {\color{accent}App Store}}
+    \resumeItemListStart
+      \resumeItem{Managed quality assurance (QA) and development tracking for a real-time sports companion app.}
+      \resumeItem{Implemented 6-language localization and handled 100+ concurrent data updates per second via WebSocket streams without UI lag.}
+      \resumeItem{Published cross‑platform to both stores, achieving 4.8 average rating.}
+    \resumeItemListEnd
+
+  \resumeProjectHeading
+    {\textbf{\color{dark}Geography Geyser} \enspace{\color{light}·}\enspace
+     \emph{\color{light}Flutter · Dart · Firebase · REST API}}
+    {\href{https://play.google.com/store/apps/details?id=com.geographygeyser.simon}%
+       {\color{accent}Google Play}\enspace{\color{light}|}\enspace
+     \href{https://apps.apple.com/app/geography-geyser/id6760274426}%
+       {\color{accent}App Store}}
+    \resumeItemListStart
+      \resumeItem{Transitioned the application from closed testing to production, shipping to 2,000+ users across Google Play and the App Store.}
+      \resumeItem{Engineered offline‑first caching, which reduced bounce rates by 15\%, and managed the end‑to‑end release pipeline.}
+    \resumeItemListEnd
+
+  \resumeProjectHeading
+    {\textbf{\color{dark}NetworkX Mobile App} \enspace{\color{light}·}\enspace
+     \emph{\color{light}Flutter · Provider · REST API}}
+    {\href{https://play.google.com/store/apps/details?id=com.app.neworkx}%
+       {\color{accent}Google Play}}
+    \resumeItemListStart
+      \resumeItem{Built an enterprise mobile app with API‑driven dashboards; engineered the network layer with automatic token refresh for seamless authentication.}
+    \resumeItemListEnd
+
+  \resumeProjectHeading
+    {\textbf{\color{dark}AnchorUP \& Reflections} \enspace{\color{light}·}\enspace
+     \emph{\color{light}Modular Architecture · GetX · GoRouter}}
+    {\href{https://github.com/Ismail554/AnchorApp}{\color{accent}GitHub}}
+    \resumeItemListStart
+      \resumeItem{Architected modular Flutter apps with reusable widget libraries, accelerating future feature development by 30\%. Integrated Firebase persistence using the repository pattern.}
+    \resumeItemListEnd
+
+\resumeSubHeadingListEnd
+
+% ── TECHNICAL SKILLS ──────────────────────────────────────────────────────────
+\section{Technical Skills}
+\vspace{6pt}
+\begin{itemize}[leftmargin=0.0in, label={}, itemsep=2pt]
+  \item\skillrow{Languages}{Dart, Java, C / C++}
+  \item\skillrow{Mobile Frameworks}{Flutter, Android SDK, Provider, GetX, GoRouter}
+  \item\skillrow{Architecture}{Clean Architecture, MVVM, REST API Integration, WebSockets}
+  \item\skillrow{Backend \& Services}{Firebase (Auth, Firestore, Storage), Agora SDK, Stripe SDK, Google Maps SDK}
+  \item\skillrow{Tools \& Platforms}{Git, GitHub, VS Code, Android Studio, Xcode, Postman, Google Play Console, App Store Connect}
+  \item\skillrow{Languages}{Bengali (Native), English (Professional Working)}
+\end{itemize}
+
+% ── EDUCATION ─────────────────────────────────────────────────────────────────
 \section{Education}
-  \resumeSubHeadingListStart
-    \resumeSubheading
-      {Canadian University of Bangladesh}{Dhaka, Bangladesh}
-      {Bachelor of Science in Computer Science (Current)}{2025 -- Present}
-    \resumeSubheading
-      {Feni Computer Institute}{Feni, Bangladesh}
-      {Diploma in Computer Science and Technology | CGPA: 3.56}{2020 -- 2024}
-    \resumeSubheading
-      {Dhakil Vocational}{Feni, Bangladesh}
-      {Computer Technology | GPA: 5.00}{2018 -- 2020}
-  \resumeSubHeadingListEnd
+\resumeSubHeadingListStart
 
-%-------------------------------------------
+  \resumeSubheading
+    {Canadian University of Bangladesh}{Dhaka, Bangladesh}
+    {Bachelor of Science in Computer Science \textnormal{(Expected 2027)}}{2025 -- Present}
+
+  \resumeSubheading
+    {Feni Computer Institute}{Feni, Bangladesh}
+    {Diploma in Computer Science and Technology \textnormal{·} CGPA: 3.56/4.00}{2020 -- 2024}
+
+  \resumeSubheading
+    {Dhakil Vocational}{Feni, Bangladesh}
+    {Computer Technology \textnormal{·} GPA: 5.00/5.00}{2018 -- 2020}
+
+\resumeSubHeadingListEnd
+
 \end{document}
