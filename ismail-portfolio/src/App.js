@@ -85,20 +85,23 @@ const Hero = () => {
       <div className="hero-content">
         <div className="hero-text">
           <h1>MD Ismail Hosen</h1>
-          <h2>Flutter Developer | Junior Software Engineer</h2>
-          <p>Building cross-platform mobile applications with Flutter</p>
+          <h2>Flutter Developer | Mobile Software Engineer</h2>
+          <p>Architecting and shipping cross-platform applications to App Store & Google Play</p>
           <div className="hero-contact">
             <a href="tel:+8801619524736" className="contact-link">
               <i className="fas fa-phone"></i> +880 1619-524736
             </a>
-            <a href="mailto:ismailshuvo555@gmail.com" className="contact-link">
-              <i className="fas fa-envelope"></i> ismailshuvo555@gmail.com
+            <a href="mailto:mdismail.cse59@gmail.com" className="contact-link">
+              <i className="fas fa-envelope"></i> mdismail.cse59@gmail.com
             </a>
             <a href="https://linkedin.com/in/ismail554" target="_blank" rel="noopener noreferrer" className="contact-link">
               <i className="fab fa-linkedin"></i> /ismail554
             </a>
             <a href="https://github.com/Ismail554" target="_blank" rel="noopener noreferrer" className="contact-link">
               <i className="fab fa-github"></i> /Ismail554
+            </a>
+            <a href="https://my-portfolio-lake-three-88.vercel.app/" target="_blank" rel="noopener noreferrer" className="contact-link">
+              <i className="fas fa-globe"></i> Portfolio
             </a>
           </div>
           <div className="hero-buttons">
@@ -128,12 +131,12 @@ const Summary = ({ id, isVisible }) => {
         <h2 className="section-title">Professional Summary</h2>
         <div className="summary-content">
           <p>
-            Mobile Application Developer with expertise in Flutter and a focus on building scalable,
-            production-ready applications. Experienced in state management (Provider, GetX), Clean Architecture,
-            and backend integration including RESTful APIs, WebSockets, and Firebase. Successfully integrated
-            third-party services such as Agora for real-time communication, Stripe for payments, and Google Maps.
-            Committed to writing clean, maintainable code and delivering optimized applications for both Android
-            and iOS platforms.
+            Results-driven Flutter Developer and Technical Lead with a proven track record of architecting
+            and shipping cross-platform applications to the App Store and Google Play. Expertise in delivering
+            pixel-perfect, 90fps user experiences utilizing Clean Architecture, MVVM, and robust state management
+            (Provider, GetX). Adept at driving end-to-end development—from QA execution to production—while
+            seamlessly integrating real-time capabilities (WebSockets, Agora), AI features, and secure payment
+            gateways (Stripe).
           </p>
         </div>
       </div>
@@ -144,12 +147,12 @@ const Summary = ({ id, isVisible }) => {
 // Skills Component
 const Skills = ({ id, isVisible }) => {
   const skills = {
-    languages: ['Dart', 'Java', 'C/C++'],
-    frameworks: ['Flutter', 'GetX', 'Provider', 'Firebase', 'Agora SDK', 'Stripe SDK', 'Google Maps SDK'],
-    architecture: ['Clean Architecture', 'MVVM', 'REST API Integration', 'WebSocket', 'Real-time Communication'],
-    tools: ['Git', 'GitHub', 'Android Studio', 'VS Code', 'Postman', 'Xcode'],
-    platforms: ['Google Play Console', 'Apple App Store Connect'],
-    soft: ['Team Leadership', 'Cross-functional Collaboration', 'Problem Solving', 'Agile Methodologies']
+    languages: ['Dart', 'Java', 'C / C++', 'Python'],
+    frameworks: ['Flutter', 'Android SDK', 'Provider', 'GetX', 'GoRouter'],
+    architecture: ['Clean Architecture', 'MVVM', 'REST API Integration', 'WebSockets'],
+    backendServices: ['Firebase (Auth, Firestore, Storage)', 'Agora SDK', 'Stripe SDK', 'Google Maps SDK'],
+    tools: ['Git', 'GitHub', 'VS Code', 'Android Studio', 'Xcode', 'Postman', 'Google Play Console', 'App Store Connect'],
+    languagesSpoken: ['Bengali (Native)', 'English (Professional Working)']
   };
 
   return (
@@ -164,33 +167,33 @@ const Skills = ({ id, isVisible }) => {
             </div>
           </div>
           <div className="skill-category">
-            <h3>Frameworks & Libraries</h3>
+            <h3>Mobile Frameworks</h3>
             <div className="skill-tags">
               {skills.frameworks.map(skill => <span key={skill} className="skill-tag">{skill}</span>)}
             </div>
           </div>
           <div className="skill-category">
-            <h3>Architecture & Concepts</h3>
+            <h3>Architecture</h3>
             <div className="skill-tags">
               {skills.architecture.map(skill => <span key={skill} className="skill-tag">{skill}</span>)}
             </div>
           </div>
           <div className="skill-category">
-            <h3>Developer Tools</h3>
+            <h3>Backend & Services</h3>
+            <div className="skill-tags">
+              {skills.backendServices.map(skill => <span key={skill} className="skill-tag">{skill}</span>)}
+            </div>
+          </div>
+          <div className="skill-category">
+            <h3>Tools & Platforms</h3>
             <div className="skill-tags">
               {skills.tools.map(skill => <span key={skill} className="skill-tag">{skill}</span>)}
             </div>
           </div>
           <div className="skill-category">
-            <h3>Platforms</h3>
+            <h3>Languages</h3>
             <div className="skill-tags">
-              {skills.platforms.map(skill => <span key={skill} className="skill-tag">{skill}</span>)}
-            </div>
-          </div>
-          <div className="skill-category">
-            <h3>Soft Skills</h3>
-            <div className="skill-tags">
-              {skills.soft.map(skill => <span key={skill} className="skill-tag">{skill}</span>)}
+              {skills.languagesSpoken.map(skill => <span key={skill} className="skill-tag">{skill}</span>)}
             </div>
           </div>
         </div>
@@ -203,15 +206,26 @@ const Skills = ({ id, isVisible }) => {
 const Experience = ({ id, isVisible }) => {
   const experiences = [
     {
-      title: 'Junior Flutter Developer | Assistant Team Leader',
+      title: 'Junior Flutter Developer · Assistant Team Leader',
       company: 'Join Venture AI',
       location: 'Dhaka, Bangladesh',
       period: 'Sep 2025 — Present',
       points: [
-        'Developing scalable cross-platform mobile applications using Flutter, implementing Clean Architecture and MVVM patterns for maintainable code structure.',
-        'Integrating real-time features using WebSockets and REST APIs, along with third-party services including Agora for live video calling and Stripe for payment processing.',
-        'Conducting application profiling to identify and resolve performance issues, focusing on optimizing UI rendering for smooth user experiences.',
-        'Mentoring junior developers and managing technical blockers in coordination with the Team Lead to ensure timely project delivery.'
+        'Engineered cross-platform Flutter applications following Clean Architecture, reducing feature delivery time by ~25% through modular design.',
+        'Optimized UI rendering pipelines, resolving jank on low-end devices and targeting 90fps to improve frame rate consistency by 20%.',
+        'Integrated REST APIs, WebSockets, and third-party SDKs including Agora (video/audio) and Stripe (payments).',
+        'Led a team of 3 junior developers; conducted code reviews, technical mentorship, and reduced production hotfixes by 30%.'
+      ]
+    },
+    {
+      title: 'Lead Flutter Developer',
+      company: 'Freelance Mobile Developer / App_Oreo Team Lead',
+      location: 'Dhaka, Bangladesh',
+      period: 'Jan 2025 — Present',
+      points: [
+        'Spearheaded end-to-end app development and acted as the primary technical point of contact for international clients via freelance platforms.',
+        'Engineered the LIVU App for the Apple ecosystem, featuring a complex predictive dashboard that calculates performance scores and fatigue risk.',
+        'Implemented a subscription-based monetization model using Stripe for a Flutter-based job-searching application, managing deployment and platform fee considerations.'
       ]
     },
     {
@@ -220,9 +234,9 @@ const Experience = ({ id, isVisible }) => {
       location: 'Dhaka, Bangladesh',
       period: 'Mar 2025 — Sep 2025',
       points: [
-        'Developed native Android applications with responsive user interfaces tailored to client requirements.',
-        'Implemented state management using Provider and integrated backend services including Firebase and REST APIs for data-driven functionality.',
-        'Optimized application bundle sizes and resolved platform-specific issues to ensure app store compliance and operational stability.'
+        'Built native Android applications in Java with responsive Material Design UIs aligned to platform lifecycle best practices.',
+        'Integrated REST APIs and Firebase backend services (Auth, Firestore, Storage) for dynamic content delivery.',
+        'Reduced APK size by 15% and resolved platform-specific crashes to maintain 99.5% crash-free sessions.'
       ]
     }
   ];
@@ -258,46 +272,69 @@ const Experience = ({ id, isVisible }) => {
 const Projects = ({ id, isVisible }) => {
   const projects = [
     {
+      name: 'ScoreLivePro',
+      description: 'Real-time sports companion app with live scoring',
+      tech: ['Flutter', 'WebSockets', 'Localization', 'QA'],
+      points: [
+        'Managed quality assurance (QA) and development tracking for a real-time sports companion app.',
+        'Implemented 6-language localization and handled 100+ concurrent data updates per second via WebSocket streams without UI lag.',
+        'Published cross-platform to both stores, achieving 4.8 average rating.'
+      ],
+      link: 'https://play.google.com/store/apps/details?id=com.scorelivepro.app',
+      linkText: 'Google Play'
+    },
+    {
       name: 'Geography Geyser',
-      description: 'Educational quiz application focused on geography',
+      description: 'Educational quiz app published to 2,000+ users',
       tech: ['Flutter', 'Dart', 'Firebase', 'REST API'],
       points: [
-        'Developed and published an educational quiz application focused on geography, featuring dynamic scoring and progression reward system.',
-        'Implemented asynchronous data loading for smooth transitions between quiz sections and local caching for offline functionality.'
+        'Transitioned the application from closed testing to production, shipping to 2,000+ users across Google Play and the App Store.',
+        'Engineered offline-first caching, which reduced bounce rates by 15%, and managed the end-to-end release pipeline.'
       ],
-      link: 'https://play.google.com/store/apps/details?id=com.app.geography_geyser',
+      link: 'https://play.google.com/store/apps/details?id=com.geographygeyser.simon',
       linkText: 'Google Play'
     },
     {
       name: 'NetworkX Mobile App',
-      description: 'Enterprise mobile application with API-driven content',
+      description: 'Enterprise mobile application with API-driven dashboards',
       tech: ['Flutter', 'Provider', 'REST API'],
       points: [
-        'Built an enterprise mobile application with API-driven content delivery and interactive dashboards.',
-        'Implemented network layer with interceptors for seamless authentication flows and token refresh handling.'
+        'Built an enterprise mobile app with API-driven dashboards; engineered the network layer with automatic token refresh for seamless authentication.'
       ],
       link: 'https://play.google.com/store/apps/details?id=com.app.neworkx',
       linkText: 'Google Play'
     },
     {
-      name: 'ScoreLivePro',
-      description: 'Sports application with live score updates',
-      tech: ['Flutter', 'WebSockets', 'State Management'],
+      name: 'AnchorUP',
+      description: 'Social networking app with real-time video & AI bot',
+      tech: ['Flutter', 'Agora SDK', 'AI', 'Social Media'],
       points: [
-        'Developed a sports application providing live score updates and commentary via WebSocket connections.',
-        'Utilized state management to handle real-time data streams while maintaining UI performance.'
+        'Architected a scalable Flutter social networking application with a reusable modular widget library, accelerating feature development by 30%.',
+        'Integrated the Agora SDK for seamless real-time video calling and embedded an interactive AI bot to drive user engagement and communication.'
       ],
-      link: 'https://github.com/Ismail554/scorelivepro',
+      link: 'https://github.com/Ismail554/AnchorApp',
       linkText: 'GitHub'
     },
     {
-      name: 'AnchorUP App',
-      description: 'Modular application with reusable components',
-      tech: ['Flutter', 'Modular Architecture'],
+      name: 'Reflections (My Notes App)',
+      description: 'Note-taking app with Clean Architecture & Firebase',
+      tech: ['Flutter', 'GetX', 'GoRouter', 'Firebase'],
       points: [
-        'Created a modular application with reusable UI widgets to streamline future feature development.'
+        'Built a note-taking app using Clean Architecture with GetX and GoRouter; integrated Firebase persistence using the repository pattern.'
       ],
-      link: 'https://github.com/Ismail554/AnchorApp',
+      link: 'https://github.com/Ismail554/my_note_app_reflections',
+      linkText: 'GitHub'
+    },
+    {
+      name: 'SwissCarExchange',
+      description: 'B2B car marketplace with listing & buyer-seller flows',
+      tech: ['Flutter', 'MVVM', 'Provider', 'GoRouter', 'REST API'],
+      points: [
+        'Built a B2B car marketplace with listing, browsing, and buyer-seller connection flows using MVVM architecture.',
+        'Implemented Provider for state management, GoRouter for declarative navigation, and REST API integration throughout.',
+        'Delivered cross-platform for both iOS and Android with Clean Architecture from data layer to presentation.'
+      ],
+      link: 'https://github.com/Ismail554/SwissCarExchange',
       linkText: 'GitHub'
     }
   ];
@@ -393,8 +430,11 @@ const Footer = () => {
             <a href="https://github.com/Ismail554" target="_blank" rel="noopener noreferrer">
               <i className="fab fa-github"></i>
             </a>
-            <a href="mailto:ismailshuvo555@gmail.com">
+            <a href="mailto:mdismail.cse59@gmail.com">
               <i className="fas fa-envelope"></i>
+            </a>
+            <a href="https://my-portfolio-lake-three-88.vercel.app/" target="_blank" rel="noopener noreferrer">
+              <i className="fas fa-globe"></i>
             </a>
           </div>
         </div>
